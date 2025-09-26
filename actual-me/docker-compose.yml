@@ -1,0 +1,13 @@
+services:
+  actual:
+    image: actualbudget/actual-server:latest
+    container_name: actual-me
+    restart: unless-stopped
+    ports:
+      - "${ACTUAL_PORT}:${ACTUAL_PORT}"
+    environment:
+      - ACTUAL_PORT=${ACTUAL_PORT}
+      - TZ=${TZ}
+      # - DEBUG=actual:config
+    volumes:
+      - ./data:/data

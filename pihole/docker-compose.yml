@@ -1,0 +1,20 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    environment:
+      TZ: ${TZ}
+      WEBPASSWORD: ${PIHOLE_WEBPASSWORD}
+      DNSMASQ_LISTENING: local
+      FTLCONF_REPLY_ADDR4: ${HOST_LAN_IP}
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    ports:
+      - "8081:80"       # Admin UI
+      - "53:53/tcp"     # DNS TCP
+      - "53:53/udp"     # DNS UDP
+    restart: unless-stopped

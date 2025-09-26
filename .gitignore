@@ -1,0 +1,27 @@
+# Top-level directories
+homepage
+servarr
+
+# Data/config directories
+data
+config
+images
+cache
+minecraft.log
+letsencrypt
+etc-dnsmasq.d
+etc-pihole
+satisfactory-server
+customFiles
+extraConfigs
+logs
+pipeline
+trainingData
+uptime-kuma/uptime-kuma
+
+# Environment variables
+.env
+
+# Mac OS
+._.DS_Store
+.DS_Store

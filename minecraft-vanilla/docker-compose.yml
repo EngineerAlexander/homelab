@@ -1,0 +1,27 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      VERSION: "1.21.7" # Game version
+      MEMORY: "4G"
+      ONLINE_MODE: "TRUE"
+      DIFFICULTY: "hard" # peaceful, easy, normal, hard
+      MAX_PLAYERS: "10"
+      MOTD: "Welcome to the best Minecraft server ever!" # Message of the day
+      ENABLE_COMMAND_BLOCK: "true"
+      ALLOW_NETHER: "true"
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: "true"
+      SPAWN_ANIMALS: "true"
+      SPAWN_MONSTERS: "true"
+      PVP: "true"
+      LEVEL_TYPE: "DEFAULT" # DEFAULT, FLAT, AMPLIFIED, LARGE_BIOMES
+      SEED: "" # Optional: specific world seed
+      VIEW_DISTANCE: "10"
+      TICK_DISTANCE: "10"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

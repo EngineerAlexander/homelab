@@ -1,0 +1,16 @@
+services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
+    container_name: stirling-pdf
+    ports:
+      - "7050:8080"  # Tool Web UI
+    volumes:
+      - ./trainingData:/usr/share/tessdata      # OCR language data (optional)
+      - ./extraConfigs:/configs                 # Tool configuration files
+      - ./customFiles:/customFiles              # For custom templates/assets
+      - ./logs:/logs                            # Log output
+      - ./pipeline:/pipeline                    # Pipeline definitions
+    environment:
+      - DISABLE_ADDITIONAL_FEATURES=true        # Enable optional features
+      - LANGS=en                                # Set default OCR language
+    restart: unless-stopped

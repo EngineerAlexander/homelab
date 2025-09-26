@@ -1,0 +1,17 @@
+services:
+    speedtest-tracker:
+        image: lscr.io/linuxserver/speedtest-tracker:latest
+        restart: unless-stopped
+        container_name: speedtest-tracker
+        ports:
+            - 9080:80
+            - 8443:443
+        environment:
+            - PUID=${PUID}
+            - PGID=${PGID}
+            - APP_KEY=${APP_KEY}
+            - DB_CONNECTION=sqlite
+            - SPEEDTEST_SCHEDULE=30 */1 * * *  # Run at minute 30 past every hour
+        volumes:
+            - /path/to/data:/config
+            - /path/to-custom-ssl-keys:/config/keys
