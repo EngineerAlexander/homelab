@@ -13,9 +13,8 @@ services:
     environment:
       DB_SQLITE_FILE: "/data/database.sqlite"
     networks:
-      - servarrnetwork
+      - npm_network
 
 networks:
-  servarrnetwork:
-    external: true
-    name: servarrnetwork
+  npm_network:
+    driver: bridge
