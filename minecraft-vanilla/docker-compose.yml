@@ -6,12 +6,12 @@ services:
       - "25565:25565"
     environment:
       EULA: "TRUE"
-      VERSION: "1.21.7" # Game version
+      VERSION: "1.21.10" # Game version
       MEMORY: "4G"
       ONLINE_MODE: "TRUE"
       DIFFICULTY: "hard" # peaceful, easy, normal, hard
       MAX_PLAYERS: "10"
-      MOTD: "Welcome to the best Minecraft server ever!" # Message of the day
+      MOTD: "Welcome to Mye and Bijan's Minecraft server!" # Message of the day
       ENABLE_COMMAND_BLOCK: "true"
       ALLOW_NETHER: "true"
       ANNOUNCE_PLAYER_ACHIEVEMENTS: "true"
